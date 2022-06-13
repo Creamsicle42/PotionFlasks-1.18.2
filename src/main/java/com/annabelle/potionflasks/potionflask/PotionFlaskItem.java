@@ -4,6 +4,7 @@ import com.annabelle.potionflasks.ItemRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -66,12 +67,18 @@ public class PotionFlaskItem extends PotionItem {
 
     @Override
     public boolean isBarVisible(ItemStack pStack) {
-        return pStack.getTag().hasUUID("potionflasks:fill_level");
+        return pStack.getTag().getInt("potionflasks:fill_level") != 0;
     }
 
     @Override
     public int getBarWidth(ItemStack pStack) {
-        if(!pStack.getTag().hasUUID("potionflasks:fill_level")){return 13;}
         return (int)(((float)pStack.getTag().getInt("potionflasks:fill_level")/MAX_FILL_LEVEL) * 13);
+    }
+
+    @Override
+    public int getBarColor(ItemStack pStack) {
+        float stackMaxDamage = this.getMaxDamage(pStack);
+        float f = Math.max(0.0F, (float)pStack.getTag().getInt("potionflasks:fill_level") / (float)MAX_FILL_LEVEL);
+        return Mth.hsvToRgb(f / 3.0F, 1.0F, 1.0F);
     }
 }
