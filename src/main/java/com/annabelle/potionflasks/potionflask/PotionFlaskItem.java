@@ -15,6 +15,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 
 public class PotionFlaskItem extends PotionItem {
     private static final int DRINK_DURATION = 16;
+    private static final int MAX_FILL_LEVEL = 9;
 
     public PotionFlaskItem(Properties p_42979_) {
         super(p_42979_);
@@ -37,14 +38,19 @@ public class PotionFlaskItem extends PotionItem {
         }
 
         // TODO: Reduce flask fill level
-        /*
+
         if (player != null) {
             player.awardStat(Stats.ITEM_USED.get(this));
             if (!player.getAbilities().instabuild) {
-                pStack.shrink(1);
+                if(!pStack.getTag().hasUUID("potionflasks:fill_level")){
+                    pStack.getTag().putInt("potionflasks:fill_level",
+                            pStack.getTag().getInt("potionflasks:fill_level") - 1);
+                } else {
+                    pStack.getTag().putInt("potionflasks:fill_level", MAX_FILL_LEVEL - 1);
+                }
             }
         }
-        */
+
 
         if (player == null || !player.getAbilities().instabuild) {
             // TODO: if fill level is 0, give player empty flask
