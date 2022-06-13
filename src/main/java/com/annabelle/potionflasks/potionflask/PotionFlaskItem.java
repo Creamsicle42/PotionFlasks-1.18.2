@@ -58,10 +58,6 @@ public class PotionFlaskItem extends PotionItem {
             if (pStack.getTag().getInt("potionflasks:fill_level") == 0) {
                 return new ItemStack(ItemRegistry.EMPTY_POTION_FLASK.get());
             }
-
-            if (player != null) {
-                player.getInventory().add(new ItemStack(ItemRegistry.EMPTY_POTION_FLASK.get()));
-            }
         }
 
         pLevel.gameEvent(pEntityLiving, GameEvent.DRINKING_FINISH, pEntityLiving.eyeBlockPosition());
