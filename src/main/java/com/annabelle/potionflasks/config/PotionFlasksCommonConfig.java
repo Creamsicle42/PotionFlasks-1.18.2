@@ -12,8 +12,7 @@ public class PotionFlasksCommonConfig {
     static {
         BUILDER.push("Configs for Potion Flasks");
 
-        FLASK_MAX_FILL_LEVEL = BUILDER.comment("How many potions fit in the Potion Flasks.")
-                .define("Max Flask Fill Level",9);
+        FLASK_MAX_FILL_LEVEL = BUILDER.define("Flask max fill level",9);
 
         BUILDER.pop();
         SPEC = BUILDER.build();
