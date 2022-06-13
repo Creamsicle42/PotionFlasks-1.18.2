@@ -17,11 +17,13 @@ import net.minecraft.world.level.gameevent.GameEvent;
 
 public class PotionFlaskItem extends PotionItem {
     private static final int DRINK_DURATION = 16;
-    private static final int MAX_FILL_LEVEL = 9;
+    private static int MAX_FILL_LEVEL = 9;
 
     public PotionFlaskItem(Properties p_42979_) {
         super(p_42979_);
     }
+
+    public static int getMaxFillLevel(){return MAX_FILL_LEVEL;}
 
     public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
         Player player = pEntityLiving instanceof Player ? (Player)pEntityLiving : null;

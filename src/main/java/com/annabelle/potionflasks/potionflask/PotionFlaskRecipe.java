@@ -29,13 +29,17 @@ public class PotionFlaskRecipe implements CraftingRecipe {
         System.out.println("Testing potion flask recipe");
 
         boolean hasPotionFlask = false;
-        int potionsNeeded = 8;
+        int potionsFound = 0;
+        int maxPotions = PotionFlaskItem.getMaxFillLevel();
         String potionID = "";
 
+        boolean foundPot = false;
 
         for(int i = 0; i < pContainer.getContainerSize(); i++){
             ItemStack item = pContainer.getItem(i);
-            if(item.isEmpty()){continue;}
+            if(item.isEmpty()){
+                continue;
+            }
             if(item.getItem() == ItemRegistry.EMPTY_POTION_FLASK.get()){
                 if(hasPotionFlask){
                     System.out.println("Too many flasks");
@@ -47,11 +51,12 @@ public class PotionFlaskRecipe implements CraftingRecipe {
                 }
             }
             if(item.getItem() == Items.POTION){
+                foundPot = true;
                 // Set tag to first potion found
                 System.out.println("Found potion");
-                if(potionsNeeded == 8){
+                if(potionID == ""){
                     potionID = item.getTag().getString("Potion");
-                    System.out.println("Potion type set to " + potionID);
+
                 }
                 else{
                     if(!potionID.equals(item.getTag().getString("Potion"))){
@@ -59,25 +64,52 @@ public class PotionFlaskRecipe implements CraftingRecipe {
                         return false;
                     }
                 }
-                potionsNeeded -= 1;
+                potionsFound += 1;
+                continue;
             }
+            if(item.getItem() == ItemRegistry.POTION_FLASK.get()){
+                if(hasPotionFlask){return false;}
+                if(potionID == ""){
+                    potionID = item.getTag().getString("Potion");
+
+                }else{
+                    if(!potionID.equals(item.getTag().getString("Potion"))){
+                        return false;
+                    }
+                }
+                if(item.getTag().getInt("potionflasks:fill_level") == 0){return false;}
+                maxPotions = maxPotions - item.getTag().getInt("potionflasks:fill_level");
+                hasPotionFlask = true;
+                continue;
+            }
+            return false;
         }
-        System.out.println("Potion flasks needed: " + potionsNeeded);
-        return hasPotionFlask && (potionsNeeded == 0);
+        return hasPotionFlask && (potionsFound <= maxPotions) && foundPot;
     }
 
     @Override
     public ItemStack assemble(CraftingContainer pContainer) {
         ItemStack flask = new ItemStack(ItemRegistry.POTION_FLASK.get());
         flask.setTag(new CompoundTag());
+
+        int baseFillLevel = 0;
+        int fillAdd = 0;
+        String potion = "";
+
         for(int i = 0; i < pContainer.getContainerSize(); i++){
             if(pContainer.getItem(i).isEmpty()){continue;}
             if(pContainer.getItem(i).getItem() == Items.POTION){
-                flask.getTag().putString("Potion",
-                        pContainer.getItem(i).getTag().getString("Potion"));
+                fillAdd++;
+                potion = pContainer.getItem(i).getTag().getString("Potion");
+            }
+            if(pContainer.getItem(i).getItem() == ItemRegistry.POTION_FLASK.get()){
+                baseFillLevel = pContainer.getItem(i).getTag().getInt("potionflasks:fill_level");
             }
         }
 
+        flask.getTag().putString("Potion",
+                potion);
+        flask.getTag().putInt("potionflasks:fill_level", baseFillLevel + fillAdd);
         return flask;
     }
 
