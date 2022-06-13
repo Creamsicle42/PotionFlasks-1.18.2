@@ -82,6 +82,20 @@ public class PotionFlaskRecipe implements CraftingRecipe {
     }
 
     @Override
+    public NonNullList<ItemStack> getRemainingItems(CraftingContainer pContainer) {
+        NonNullList<ItemStack> nonnulllist = NonNullList.withSize(pContainer.getContainerSize(), ItemStack.EMPTY);
+
+        for(int i = 0; i < nonnulllist.size(); ++i) {
+            ItemStack item = pContainer.getItem(i);
+            if (item.getItem() == Items.POTION) {
+                nonnulllist.set(i, new ItemStack(Items.GLASS_BOTTLE));
+            }
+        }
+
+        return nonnulllist;
+    }
+
+    @Override
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
         return false;
     }
