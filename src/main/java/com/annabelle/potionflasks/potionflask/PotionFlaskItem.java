@@ -1,5 +1,6 @@
 package com.annabelle.potionflasks.potionflask;
 
+import com.annabelle.potionflasks.ItemRegistry;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
@@ -53,16 +54,14 @@ public class PotionFlaskItem extends PotionItem {
 
 
         if (player == null || !player.getAbilities().instabuild) {
-            // TODO: if fill level is 0, give player empty flask
-            /*
-            if (pStack.isEmpty()) {
-                return new ItemStack(Items.GLASS_BOTTLE);
+
+            if (pStack.getTag().getInt("potionflasks:fill_level") == 0) {
+                return new ItemStack(ItemRegistry.EMPTY_POTION_FLASK.get());
             }
 
             if (player != null) {
-                player.getInventory().add(new ItemStack(Items.GLASS_BOTTLE));
+                player.getInventory().add(new ItemStack(ItemRegistry.EMPTY_POTION_FLASK.get()));
             }
-            */
         }
 
         pLevel.gameEvent(pEntityLiving, GameEvent.DRINKING_FINISH, pEntityLiving.eyeBlockPosition());
