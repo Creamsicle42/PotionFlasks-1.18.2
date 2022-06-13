@@ -43,7 +43,7 @@ public class PotionFlaskItem extends PotionItem {
         if (player != null) {
             player.awardStat(Stats.ITEM_USED.get(this));
             if (!player.getAbilities().instabuild) {
-                if(!pStack.getTag().hasUUID("potionflasks:fill_level")){
+                if(pStack.getTag().getInt("potionflasks:fill_level") != 0){
                     pStack.getTag().putInt("potionflasks:fill_level",
                             pStack.getTag().getInt("potionflasks:fill_level") - 1);
                 } else {
