@@ -1,0 +1,26 @@
+{
+  "item.potionflasks.empty_potion_flask": "Empty PotionFlask",
+
+  "item.potionflasks.potion_flask.effect.empty": "Uncraftable Potion Flask",
+  "item.potionflasks.potion_flask.effect.water": "Water Bottle",
+  "item.potionflasks.potion_flask.effect.mundane": "Mundane Potion Flask",
+  "item.potionflasks.potion_flask.effect.thick": "Thick Potion Flask",
+  "item.potionflasks.potion_flask.effect.awkward": "Awkward Potion Flask",
+  "item.potionflasks.potion_flask.effect.night_vision": "Potion Flask of Night Vision",
+  "item.potionflasks.potion_flask.effect.invisibility": "Potion Flask of Invisibility",
+  "item.potionflasks.potion_flask.effect.leaping": "Potion Flask of Leaping",
+  "item.potionflasks.potion_flask.effect.fire_resistance": "Potion Flask of Fire Resistance",
+  "item.potionflasks.potion_flask.effect.swiftness": "Potion Flask of Swiftness",
+  "item.potionflasks.potion_flask.effect.slowness": "Potion Flask of Slowness",
+  "item.potionflasks.potion_flask.effect.water_breathing": "Potion Flask of Water Breathing",
+  "item.potionflasks.potion_flask.effect.healing": "Potion Flask of Healing",
+  "item.potionflasks.potion_flask.effect.harming": "Potion Flask of Harming",
+  "item.potionflasks.potion_flask.effect.poison": "Potion Flask of Poison",
+  "item.potionflasks.potion_flask.effect.regeneration": "Potion Flask of Regeneration",
+  "item.potionflasks.potion_flask.effect.strength": "Potion Flask of Strength",
+  "item.potionflasks.potion_flask.effect.weakness": "Potion Flask of Weakness",
+  "item.potionflasks.potion_flask.effect.levitation": "Potion Flask of Levitation",
+  "item.potionflasks.potion_flask.effect.luck": "Potion Flask of Luck",
+  "item.potionflasks.potion_flask.effect.turtle_master": "Potion Flask of The Turtle Master",
+  "item.potionflasks.potion_flask.effect.slow_falling": "Potion Flask of Slow Falling"
+}
