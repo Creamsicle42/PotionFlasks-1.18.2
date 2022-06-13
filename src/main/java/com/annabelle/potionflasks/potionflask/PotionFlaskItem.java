@@ -67,4 +67,15 @@ public class PotionFlaskItem extends PotionItem {
         pLevel.gameEvent(pEntityLiving, GameEvent.DRINKING_FINISH, pEntityLiving.eyeBlockPosition());
         return pStack;
     }
+
+    @Override
+    public boolean isBarVisible(ItemStack pStack) {
+        return pStack.getTag().hasUUID("potionflasks:fill_level");
+    }
+
+    @Override
+    public int getBarWidth(ItemStack pStack) {
+        if(!pStack.getTag().hasUUID("potionflasks:fill_level")){return 13;}
+        return (int)(((float)pStack.getTag().getInt("potionflasks:fill_level")/MAX_FILL_LEVEL) * 13);
+    }
 }
