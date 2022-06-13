@@ -18,6 +18,9 @@ public class ItemRegistry {
                     .stacksTo(1))
     );
 
+    public static final RegistryObject<Item> EMPTY_POTION_FLASK = ITEMS.register("empty_potion_flask",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
