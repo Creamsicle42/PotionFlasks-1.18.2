@@ -1,6 +1,7 @@
 package com.annabelle.potionflasks.potionflask;
 
 import com.annabelle.potionflasks.ItemRegistry;
+import com.annabelle.potionflasks.config.PotionFlasksCommonConfig;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
@@ -17,13 +18,13 @@ import net.minecraft.world.level.gameevent.GameEvent;
 
 public class PotionFlaskItem extends PotionItem {
     private static final int DRINK_DURATION = 16;
-    private static int MAX_FILL_LEVEL = 9;
+
 
     public PotionFlaskItem(Properties p_42979_) {
         super(p_42979_);
     }
 
-    public static int getMaxFillLevel(){return MAX_FILL_LEVEL;}
+    public static int getMaxFillLevel(){return PotionFlasksCommonConfig.FLASK_MAX_FILL_LEVEL.get();}
 
     public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
         Player player = pEntityLiving instanceof Player ? (Player)pEntityLiving : null;
@@ -50,7 +51,7 @@ public class PotionFlaskItem extends PotionItem {
                     pStack.getTag().putInt("potionflasks:fill_level",
                             pStack.getTag().getInt("potionflasks:fill_level") - 1);
                 } else {
-                    pStack.getTag().putInt("potionflasks:fill_level", MAX_FILL_LEVEL - 1);
+                    pStack.getTag().putInt("potionflasks:fill_level", PotionFlasksCommonConfig.FLASK_MAX_FILL_LEVEL.get() - 1);
                 }
             }
         }
@@ -74,13 +75,13 @@ public class PotionFlaskItem extends PotionItem {
 
     @Override
     public int getBarWidth(ItemStack pStack) {
-        return (int)(((float)pStack.getTag().getInt("potionflasks:fill_level")/MAX_FILL_LEVEL) * 13);
+        return (int)(((float)pStack.getTag().getInt("potionflasks:fill_level")/PotionFlasksCommonConfig.FLASK_MAX_FILL_LEVEL.get()) * 13);
     }
 
     @Override
     public int getBarColor(ItemStack pStack) {
         float stackMaxDamage = this.getMaxDamage(pStack);
-        float f = Math.max(0.0F, (float)pStack.getTag().getInt("potionflasks:fill_level") / (float)MAX_FILL_LEVEL);
+        float f = Math.max(0.0F, (float)pStack.getTag().getInt("potionflasks:fill_level") / (float)PotionFlasksCommonConfig.FLASK_MAX_FILL_LEVEL.get());
         return Mth.hsvToRgb(f / 3.0F, 1.0F, 1.0F);
     }
 }
