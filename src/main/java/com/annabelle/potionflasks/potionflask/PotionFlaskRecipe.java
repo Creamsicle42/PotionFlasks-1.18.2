@@ -129,7 +129,7 @@ public class PotionFlaskRecipe implements CraftingRecipe {
 
     @Override
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
-        return false;
+        return true;
     }
 
     @Override
@@ -139,12 +139,12 @@ public class PotionFlaskRecipe implements CraftingRecipe {
 
     @Override
     public ResourceLocation getId() {
-        return null;
+        return this.id;
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
-        return Serializer.INSTANCE;
+    public RecipeSerializer<PotionFlaskRecipe> getSerializer() {
+        return new PotionFlaskRecipe.Serializer();
     }
 
     @Override
@@ -152,45 +152,18 @@ public class PotionFlaskRecipe implements CraftingRecipe {
         return RecipeType.CRAFTING;
     }
 
-    public static class Serializer implements RecipeSerializer<PotionFlaskRecipe> {
-        public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(PotionFlasks.MOD_ID,"fill_potion_flask");
-
-        @Override
-        public PotionFlaskRecipe fromJson(ResourceLocation id, JsonObject json) {
-            return new PotionFlaskRecipe(id);
+    public static class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<PotionFlaskRecipe> {
+        private static final ResourceLocation NAME = new ResourceLocation(PotionFlasks.MOD_ID, "fill_potion_flask");
+        public PotionFlaskRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
+            return new PotionFlaskRecipe(pRecipeId);
         }
 
-        @Override
-        public PotionFlaskRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
-
-            return new PotionFlaskRecipe(id);
+        public PotionFlaskRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+            return new PotionFlaskRecipe(pRecipeId);
         }
 
-        @Override
-        public void toNetwork(FriendlyByteBuf buf, PotionFlaskRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf pBuffer, PotionFlaskRecipe pRecipe) {
 
-        }
-
-        @Override
-        public RecipeSerializer<?> setRegistryName(ResourceLocation name) {
-            return INSTANCE;
-        }
-
-
-        @Override
-        public ResourceLocation getRegistryName() {
-            return ID;
-        }
-
-        @Override
-        public Class<RecipeSerializer<?>> getRegistryType() {
-            return Serializer.castClass(RecipeSerializer.class);
-        }
-
-        @SuppressWarnings("unchecked") // Need this wrapper, because generics
-        private static <G> Class<G> castClass(Class<?> cls) {
-            return (Class<G>)cls;
         }
     }
 }
