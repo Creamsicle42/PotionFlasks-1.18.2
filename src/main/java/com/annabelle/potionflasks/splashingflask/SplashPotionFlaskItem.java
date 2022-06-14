@@ -51,14 +51,22 @@ public class SplashPotionFlaskItem extends SplashPotionItem {
             } else {
                 itemstack.getTag().putInt("potionflasks:fill_level", PotionFlasksCommonConfig.FLASK_MAX_FILL_LEVEL.get() - 1);
             }
-            if(itemstack.getTag().getInt("potionflasks:fill_level") == 0){
-                itemstack.shrink(1);
-                pPlayer.getInventory().add(new ItemStack(ItemRegistry.EMPTY_SPLASH_POTION_FLASK.get()));
+            if(itemstack.getTag().getInt("potionflasks:fill_level") <= 0){
+                itemstack = new ItemStack(ItemRegistry.EMPTY_SPLASH_POTION_FLASK.get());
+
             }
         }
 
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
     }
+
+    @Override
+    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+        if(pStack.getTag().getInt("potionflasks:fill_level") < 0){
+            //pEntity.setItemSlot(getEquipmentSlot(pStack) ,new ItemStack(ItemRegistry.EMPTY_SPLASH_POTION_FLASK.get()));
+        }
+    }
+
     public boolean isBarVisible(ItemStack pStack) {
         return pStack.getTag().getInt("potionflasks:fill_level") != 0;
     }
