@@ -10,6 +10,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -65,7 +66,13 @@ public class RegeneratingPotionFlaskItem extends PotionFlaskItem {
         }
 
 
+        if(!pLevel.isClientSide){
 
+
+        }
+        player.sendMessage(
+                new TextComponent("Fill level: " + pStack.getTag().getInt("potionflasks:fill_level")),
+                player.getUUID());
 
         if (player == null || !player.getAbilities().instabuild) {
 
@@ -79,6 +86,26 @@ public class RegeneratingPotionFlaskItem extends PotionFlaskItem {
         return pStack;
     }
 
+    @Override
+    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+        super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
+
+        if(pLevel.isClientSide){return;}
+        if(pStack.getTag().getInt("potionflasks:fill_level") < PotionFlasksCommonConfig.FLASK_MAX_FILL_LEVEL.get() ||
+                pStack.getTag().getBoolean("potionflask:empty")){
+            pStack.getTag().putInt("potionflasks:refill_countdown",
+                    pStack.getTag().getInt("potionflasks:refill_countdown") + 1);
+            if(pStack.getTag().getInt("potionflasks:refill_countdown") >= PotionFlasksCommonConfig.FLASK_REGEN_TIME.get()){
+                pStack.getTag().putInt("potionflasks:fill_level",
+                        pStack.getTag().getInt("potionflasks:fill_level") + 1);
+                pStack.getTag().putInt("potionflasks:refill_countdown",0);
+                pEntity.sendMessage(
+                        new TextComponent("Refilled flask to: " + pStack.getTag().getInt("potionflasks:fill_level")),
+                        pEntity.getUUID());
+                pStack.getTag().putBoolean("potionflask:empty", false);
+            }
+        }
 
 
+    }
 }
