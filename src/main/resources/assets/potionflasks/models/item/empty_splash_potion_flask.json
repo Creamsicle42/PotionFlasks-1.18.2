@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "potionflasks:item/splash_potion_flask"
+  }
+}
