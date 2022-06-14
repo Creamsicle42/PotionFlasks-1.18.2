@@ -1,5 +1,6 @@
 {
   "item.potionflasks.empty_potion_flask": "Empty Potion Flask",
+  "item.potionflasks.empty_splash_potion_flask": "Empty Splash Potion Flask",
 
   "item.potionflasks.potion_flask.effect.empty": "Uncraftable Potion Flask",
   "item.potionflasks.potion_flask.effect.water": "Water Bottle",
@@ -22,5 +23,28 @@
   "item.potionflasks.potion_flask.effect.levitation": "Potion Flask of Levitation",
   "item.potionflasks.potion_flask.effect.luck": "Potion Flask of Luck",
   "item.potionflasks.potion_flask.effect.turtle_master": "Potion Flask of The Turtle Master",
-  "item.potionflasks.potion_flask.effect.slow_falling": "Potion Flask of Slow Falling"
+  "item.potionflasks.potion_flask.effect.slow_falling": "Potion Flask of Slow Falling",
+
+  "item.potionflasks.splash_potion_flask.effect.empty": "Uncraftable Splashing Potion Flask",
+  "item.potionflasks.splash_potion_flask.effect.water": "Water Bottle",
+  "item.potionflasks.splash_potion_flask.effect.mundane": "Mundane Splashing Potion Flask",
+  "item.potionflasks.splash_potion_flask.effect.thick": "Thick Splashing Potion Flask",
+  "item.potionflasks.splash_potion_flask.effect.awkward": "Awkward Splashing Potion Flask",
+  "item.potionflasks.splash_potion_flask.effect.night_vision": "Splashing Potion Flask of Night Vision",
+  "item.potionflasks.splash_potion_flask.effect.invisibility": "Splashing Potion Flask of Invisibility",
+  "item.potionflasks.splash_potion_flask.effect.leaping": "Splashing Potion Flask of Leaping",
+  "item.potionflasks.splash_potion_flask.effect.fire_resistance": "Splashing Potion Flask of Fire Resistance",
+  "item.potionflasks.splash_potion_flask.effect.swiftness": "Splashing Potion Flask of Swiftness",
+  "item.potionflasks.splash_potion_flask.effect.slowness": "Splashing Potion Flask of Slowness",
+  "item.potionflasks.splash_potion_flask.effect.water_breathing": "Splashing Potion Flask of Water Breathing",
+  "item.potionflasks.splash_potion_flask.effect.healing": "Splashing Potion Flask of Healing",
+  "item.potionflasks.splash_potion_flask.effect.harming": "Splashing Potion Flask of Harming",
+  "item.potionflasks.splash_potion_flask.effect.poison": "Splashing Potion Flask of Poison",
+  "item.potionflasks.splash_potion_flask.effect.regeneration": "Splashing Potion Flask of Regeneration",
+  "item.potionflasks.splash_potion_flask.effect.strength": "Splashing Potion Flask of Strength",
+  "item.potionflasks.splash_potion_flask.effect.weakness": "Splashing Potion Flask of Weakness",
+  "item.potionflasks.splash_potion_flask.effect.levitation": "Splashing Potion Flask of Levitation",
+  "item.potionflasks.splash_potion_flask.effect.luck": "Splashing Potion Flask of Luck",
+  "item.potionflasks.splash_potion_flask.effect.turtle_master": "Splashing Potion Flask of The Turtle Master",
+  "item.potionflasks.splash_potion_flask.effect.slow_falling": "Splashing Potion Flask of Slow Falling"
 }
