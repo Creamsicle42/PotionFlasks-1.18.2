@@ -29,6 +29,7 @@ public class PotionFlaskRecipe implements CraftingRecipe {
         System.out.println("Testing potion flask recipe");
 
         boolean hasPotionFlask = false;
+        boolean splashFlask = false;
         int potionsFound = 0;
         int maxPotions = PotionFlaskItem.getMaxFillLevel();
         String potionID = "";
@@ -40,7 +41,7 @@ public class PotionFlaskRecipe implements CraftingRecipe {
             if(item.isEmpty()){
                 continue;
             }
-            if(item.getItem() == ItemRegistry.EMPTY_POTION_FLASK.get()){
+            if(item.getItem() == ItemRegistry.EMPTY_POTION_FLASK.get() || item.getItem() == ItemRegistry.EMPTY_SPLASH_POTION_FLASK.get()){
                 if(hasPotionFlask){
                     System.out.println("Too many flasks");
                     return false;
@@ -67,7 +68,7 @@ public class PotionFlaskRecipe implements CraftingRecipe {
                 potionsFound += 1;
                 continue;
             }
-            if(item.getItem() == ItemRegistry.POTION_FLASK.get()){
+            if(item.getItem() == ItemRegistry.POTION_FLASK.get() || item.getItem() == ItemRegistry.SPLASH_POTION_FLASK.get() ){
                 if(hasPotionFlask){return false;}
                 if(potionID == ""){
                     potionID = item.getTag().getString("Potion");
@@ -82,6 +83,7 @@ public class PotionFlaskRecipe implements CraftingRecipe {
                 hasPotionFlask = true;
                 continue;
             }
+
             return false;
         }
         return hasPotionFlask && (potionsFound <= maxPotions) && foundPot;
@@ -89,9 +91,8 @@ public class PotionFlaskRecipe implements CraftingRecipe {
 
     @Override
     public ItemStack assemble(CraftingContainer pContainer) {
-        ItemStack flask = new ItemStack(ItemRegistry.POTION_FLASK.get());
-        flask.setTag(new CompoundTag());
 
+        boolean splashFlask = false;
         int baseFillLevel = 0;
         int fillAdd = 0;
         String potion = "";
@@ -105,7 +106,24 @@ public class PotionFlaskRecipe implements CraftingRecipe {
             if(pContainer.getItem(i).getItem() == ItemRegistry.POTION_FLASK.get()){
                 baseFillLevel = pContainer.getItem(i).getTag().getInt("potionflasks:fill_level");
             }
+            if(pContainer.getItem(i).getItem() == ItemRegistry.SPLASH_POTION_FLASK.get()){
+                baseFillLevel = pContainer.getItem(i).getTag().getInt("potionflasks:fill_level");
+                splashFlask = true;
+            }
+            if(pContainer.getItem(i).getItem() == ItemRegistry.EMPTY_SPLASH_POTION_FLASK.get()){
+                splashFlask = true;
+            }
         }
+
+        ItemStack flask;
+
+        if(splashFlask){
+            flask = new ItemStack(ItemRegistry.SPLASH_POTION_FLASK.get());
+        }else{
+            flask = new ItemStack(ItemRegistry.POTION_FLASK.get());
+        }
+
+        flask.setTag(new CompoundTag());
 
         flask.getTag().putString("Potion",
                 potion);
