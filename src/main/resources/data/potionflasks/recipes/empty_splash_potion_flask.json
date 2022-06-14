@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " N ",
+    "BFB",
+    "GBG"
+  ],
+  "key": {
+    "F": {
+      "item": "potionflasks:empty_potion_flask"
+    },
+    "B": {
+      "item": "minecraft:blaze_powder"
+    },
+    "N": {
+      "item": "minecraft:gold_nugget"
+    },
+    "G": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "result": {
+    "item": "potionflasks:empty_splash_potion_flask"
+  }
+}
