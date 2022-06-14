@@ -1,6 +1,7 @@
 package com.annabelle.potionflasks;
 
 import com.annabelle.potionflasks.potionflask.PotionFlaskItem;
+import com.annabelle.potionflasks.splashingflask.SplashPotionFlaskItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -17,8 +18,15 @@ public class ItemRegistry {
                     .tab(CreativeModeTab.TAB_BREWING)
                     .stacksTo(1))
     );
+    public static final RegistryObject<Item> SPLASH_POTION_FLASK = ITEMS.register("splash_potion_flask",
+            () -> new SplashPotionFlaskItem(new Item.Properties()
+                    .tab(CreativeModeTab.TAB_BREWING)
+                    .stacksTo(1))
+    );
 
     public static final RegistryObject<Item> EMPTY_POTION_FLASK = ITEMS.register("empty_potion_flask",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+    public static final RegistryObject<Item> EMPTY_SPLASH_POTION_FLASK = ITEMS.register("empty_splash_potion_flask",
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
     public static void register(IEventBus eventBus) {
