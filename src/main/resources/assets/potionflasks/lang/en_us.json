@@ -69,5 +69,35 @@
   "item.potionflasks.regenerating_potion_flask.effect.levitation": "Unending Flask of Levitation",
   "item.potionflasks.regenerating_potion_flask.effect.luck": "Unending Flask of Luck",
   "item.potionflasks.regenerating_potion_flask.effect.turtle_master": "Unending Flask of The Turtle Master",
-  "item.potionflasks.regenerating_potion_flask.effect.slow_falling": "Unending Flask of Slow Falling"
+  "item.potionflasks.regenerating_potion_flask.effect.slow_falling": "Unending Flask of Slow Falling",
+
+  "comment_1": "Apotheosis potions",
+
+  "item.potionflasks.potion_flask.effect.resistance": "Potion Flask of Resistance",
+  "item.potionflasks.splash_potion_flask.effect.resistance": "Splashing Potion Flask of Resistance",
+  "item.potionflasks.regenerating_potion_flask.effect.resistance": "Unending Flask of Resistance",
+
+  "item.potionflasks.potion_flask.effect.absorption": "Potion Flask of Absorption",
+  "item.potionflasks.splash_potion_flask.effect.absorption": "Splashing Potion Flask of Absorption",
+  "item.potionflasks.regenerating_potion_flask.effect.absorption": "Unending Flask of Absorption",
+
+  "item.potionflasks.potion_flask.effect.haste": "Potion Flask of Haste",
+  "item.potionflasks.splash_potion_flask.effect.haste": "Splashing Potion Flask of Haste",
+  "item.potionflasks.regenerating_potion_flask.effect.haste": "Unending Flask of Haste",
+
+  "item.potionflasks.potion_flask.effect.fatigue": "Potion Flask of Fatigue",
+  "item.potionflasks.splash_potion_flask.effect.fatigue": "Splashing Potion Flask of Fatigue",
+  "item.potionflasks.regenerating_potion_flask.effect.fatigue": "Unending Flask of Fatigue",
+
+  "item.potionflasks.potion_flask.effect.wither": "Potion Flask of Wither",
+  "item.potionflasks.splash_potion_flask.effect.wither": "Splashing Potion Flask of Wither",
+  "item.potionflasks.regenerating_potion_flask.effect.wither": "Unending Flask of Wither",
+
+  "item.potionflasks.potion_flask.effect.sundering": "Potion Flask of Sundering",
+  "item.potionflasks.splash_potion_flask.effect.sundering": "Splashing Potion Flask of Sundering",
+  "item.potionflasks.regenerating_potion_flask.effect.sundering": "Unending Flask of Sundering",
+
+  "item.potionflasks.potion_flask.effect.knowledge": "Potion Flask of Ancient Knowledge",
+  "item.potionflasks.splash_potion_flask.effect.knowledge": "Splashing Potion Flask of Ancient Knowledge",
+  "item.potionflasks.regenerating_potion_flask.effect.knowledge": "Unending Flask of Ancient Knowledge"
 }
