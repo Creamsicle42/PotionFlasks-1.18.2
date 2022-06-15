@@ -53,15 +53,13 @@ public class RegeneratingPotionFlaskItem extends PotionFlaskItem {
                 if(pStack.getTag().getInt("potionflasks:fill_level") != 0){
                     pStack.getTag().putInt("potionflasks:fill_level",
                             pStack.getTag().getInt("potionflasks:fill_level") - 1);
-                    pEntityLiving.sendMessage(new TextComponent("Flask fill level: " + pStack.getTag().getInt("potionflasks:fill_level"))
-                            ,pEntityLiving.getUUID()
-                    );
                 } else {
                     if (!pStack.getTag().getBoolean("potionflask:empty")) {
                         pStack.getTag().putBoolean("potionflask:has_been_used", true);
                         pStack.getTag().putInt("potionflasks:fill_level", PotionFlasksCommonConfig.FLASK_MAX_FILL_LEVEL.get() - 1);
                     }
                 }
+                pStack.getTag().putInt("potionflasks:refill_countdown",0);
             }
         }
 
@@ -70,9 +68,6 @@ public class RegeneratingPotionFlaskItem extends PotionFlaskItem {
 
 
         }
-        player.sendMessage(
-                new TextComponent("Fill level: " + pStack.getTag().getInt("potionflasks:fill_level")),
-                player.getUUID());
 
         if (player == null || !player.getAbilities().instabuild) {
 
@@ -87,6 +82,11 @@ public class RegeneratingPotionFlaskItem extends PotionFlaskItem {
     }
 
     @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+        return slotChanged;
+    }
+
+    @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
         super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
 
@@ -95,13 +95,11 @@ public class RegeneratingPotionFlaskItem extends PotionFlaskItem {
                 pStack.getTag().getBoolean("potionflask:empty")){
             pStack.getTag().putInt("potionflasks:refill_countdown",
                     pStack.getTag().getInt("potionflasks:refill_countdown") + 1);
+
             if(pStack.getTag().getInt("potionflasks:refill_countdown") >= PotionFlasksCommonConfig.FLASK_REGEN_TIME.get()){
                 pStack.getTag().putInt("potionflasks:fill_level",
                         pStack.getTag().getInt("potionflasks:fill_level") + 1);
                 pStack.getTag().putInt("potionflasks:refill_countdown",0);
-                pEntity.sendMessage(
-                        new TextComponent("Refilled flask to: " + pStack.getTag().getInt("potionflasks:fill_level")),
-                        pEntity.getUUID());
                 pStack.getTag().putBoolean("potionflask:empty", false);
             }
         }

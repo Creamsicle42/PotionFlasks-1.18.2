@@ -14,7 +14,7 @@ public class PotionFlasksCommonConfig {
         BUILDER.push("Configs for Potion Flasks");
 
         FLASK_MAX_FILL_LEVEL = BUILDER.define("Flask max fill level",9);
-        FLASK_REGEN_TIME = BUILDER.define("Regenerating flask refill rate", 2000);
+        FLASK_REGEN_TIME = BUILDER.define("Regenerating flask refill rate", 200);
 
         BUILDER.pop();
         SPEC = BUILDER.build();
