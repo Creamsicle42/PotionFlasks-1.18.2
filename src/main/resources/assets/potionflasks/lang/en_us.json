@@ -99,5 +99,49 @@
 
   "item.potionflasks.potion_flask.effect.knowledge": "Potion Flask of Ancient Knowledge",
   "item.potionflasks.splash_potion_flask.effect.knowledge": "Splashing Potion Flask of Ancient Knowledge",
-  "item.potionflasks.regenerating_potion_flask.effect.knowledge": "Unending Flask of Ancient Knowledge"
+  "item.potionflasks.regenerating_potion_flask.effect.knowledge": "Unending Flask of Ancient Knowledge",
+
+  "comment_2": "Cyclic potions",
+
+  "item.potionflasks.potion_flask.effect.slowfall": "Potion Flask of Slowfall",
+  "item.potionflasks.splash_potion_flask.effect.slowfall": "Splashing Potion Flask of Slowfall",
+  "item.potionflasks.regenerating_potion_flask.effect.slowfall": "Unending Flask of Slowfall",
+
+  "item.potionflasks.potion_flask.effect.butter": "Potion Flask of Butterfingers",
+  "item.potionflasks.splash_potion_flask.effect.butter": "Splashing Potion Flask of Butterfingers",
+  "item.potionflasks.regenerating_potion_flask.effect.butter": "Unending Flask of Butterfingers",
+
+  "item.potionflasks.potion_flask.effect.butter2": "Potion Flask of Butterfingers II",
+  "item.potionflasks.splash_potion_flask.effect.butter2": "Splashing Potion Flask of Butterfingers II",
+  "item.potionflasks.regenerating_potion_flask.effect.butter2": "Unending Flask of Butterfingers II",
+
+  "item.potionflasks.potion_flask.effect.cyclic_waterwalk": "Potion Flask of Waterwalking",
+  "item.potionflasks.splash_potion_flask.effect.cyclic_waterwalk": "Splashing Potion Flask of Waterwalking",
+  "item.potionflasks.regenerating_potion_flask.effect.cyclic_waterwalk": "Unending Flask of Waterwalking",
+
+  "item.potionflasks.potion_flask.effect.cyclic_snow": "Potion Flask of Snow-walker",
+  "item.potionflasks.splash_potion_flask.effect.cyclic_snow": "Splashing Potion Flask of Snow-walker",
+  "item.potionflasks.regenerating_potion_flask.effect.cyclic_snow": "Unending Flask of Snow-walker",
+
+  "item.potionflasks.potion_flask.effect.swim": "Potion Flask of Swim Speed",
+  "item.potionflasks.splash_potion_flask.effect.swim": "Splashing Potion Flask of Swim Speed",
+  "item.potionflasks.regenerating_potion_flask.effect.swim": "Unending Flask of Swim Speed",
+
+  "item.potionflasks.potion_flask.effect.swim2": "Potion Flask of Swim Speed II",
+  "item.potionflasks.splash_potion_flask.effect.swim2": "Splashing Potion Flask of Swim Speed II",
+  "item.potionflasks.regenerating_potion_flask.effect.swim2": "Unending Flask of Swim Speed II",
+
+  "item.potionflasks.potion_flask.effect.bounce": "Potion Flask of Bouncing",
+  "item.potionflasks.splash_potion_flask.effect.bounce": "Splashing Potion Flask of Bouncing",
+  "item.potionflasks.regenerating_potion_flask.effect.bounce": "Unending Flask of Bouncing",
+
+  "comment_3": "Quark potions",
+
+  "item.potionflasks.potion_flask.effect.quark.resilience": "Potion Flask of Stability",
+  "item.potionflasks.splash_potion_flask.effect.quark.resilience": "Splashing Potion Flask of Stability",
+  "item.potionflasks.regenerating_potion_flask.effect.quark.resilience": "Unending Flask of Stability",
+
+  "item.potionflasks.potion_flask.effect.quark.resistance": "Potion Flask of Fortitude",
+  "item.potionflasks.splash_potion_flask.effect.quark.resistance": "Splashing Potion Flask of Fortitude",
+  "item.potionflasks.regenerating_potion_flask.effect.quark.resistance": "Unending Flask of Fortitude"
 }
