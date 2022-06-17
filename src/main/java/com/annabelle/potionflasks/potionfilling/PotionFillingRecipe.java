@@ -4,6 +4,7 @@ import com.annabelle.potionflasks.ItemRegistry;
 import com.annabelle.potionflasks.PotionFlasks;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.CraftingContainer;
@@ -46,6 +47,7 @@ public class PotionFillingRecipe implements CraftingRecipe {
     @Override
     public ItemStack assemble(CraftingContainer pContainer) {
         ItemStack out = new ItemStack(Items.POTION);
+        out.setTag(new CompoundTag());
         for(int i = 0; i < pContainer.getContainerSize(); i++) {
             ItemStack item = pContainer.getItem(i);
             if(item.getItem() == ItemRegistry.POTION_FLASK.get()){
@@ -103,7 +105,7 @@ public class PotionFillingRecipe implements CraftingRecipe {
     }
 
     public static class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<PotionFillingRecipe> {
-        private static final ResourceLocation NAME = new ResourceLocation(PotionFlasks.MOD_ID, "fill_potion_flask");
+        private static final ResourceLocation NAME = new ResourceLocation(PotionFlasks.MOD_ID, "fill_from_potion_flask");
         public PotionFillingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
             return new PotionFillingRecipe(pRecipeId);
         }
