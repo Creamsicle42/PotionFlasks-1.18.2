@@ -1,5 +1,6 @@
 package com.annabelle.potionflasks;
 
+import com.annabelle.potionflasks.potionfilling.PotionFillingRecipe;
 import com.annabelle.potionflasks.potionflask.PotionFlaskRecipe;
 import net.minecraft.core.Registry;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -15,6 +16,10 @@ public class RecipeRegistry {
     public static final RegistryObject<RecipeSerializer<PotionFlaskRecipe>> POTION_FLASK_RECIPE =
             SERIALIZERS.register("fill_potion_flask",
                     PotionFlaskRecipe.Serializer::new);
+
+    public static final RegistryObject<RecipeSerializer<PotionFillingRecipe>> POTION_FILLING_RECIPE =
+            SERIALIZERS.register("fill_from_potion_flask",
+                    PotionFillingRecipe.Serializer::new);
 
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);
