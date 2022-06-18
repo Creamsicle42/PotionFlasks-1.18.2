@@ -56,7 +56,7 @@ public class LingeringFlaskItem extends LingeringPotionItem {
         level.addFreshEntity(thrownpotion);
     }
 
-    public ItemStack getEmptyItemStack(){return new ItemStack(ItemRegistry.EMPTY_SPLASH_POTION_FLASK.get());}
+    public ItemStack getEmptyItemStack(){return new ItemStack(ItemRegistry.EMPTY_LINGERING_POTION_FLASK.get());}
 
     public boolean isBarVisible(ItemStack pStack) {
         return pStack.getTag().getInt("potionflasks:fill_level") != 0;
