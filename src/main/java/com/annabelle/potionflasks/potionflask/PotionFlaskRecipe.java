@@ -41,7 +41,9 @@ public class PotionFlaskRecipe implements CraftingRecipe {
             if(item.isEmpty()){
                 continue;
             }
-            if(item.getItem() == ItemRegistry.EMPTY_POTION_FLASK.get() || item.getItem() == ItemRegistry.EMPTY_SPLASH_POTION_FLASK.get()){
+            if(item.getItem() == ItemRegistry.EMPTY_POTION_FLASK.get() ||
+                    item.getItem() == ItemRegistry.EMPTY_SPLASH_POTION_FLASK.get() ||
+                    item.getItem() == ItemRegistry.EMPTY_LINGERING_POTION_FLASK.get()){
                 if(hasPotionFlask){
                     System.out.println("Too many flasks");
                     return false;
@@ -68,7 +70,9 @@ public class PotionFlaskRecipe implements CraftingRecipe {
                 potionsFound += 1;
                 continue;
             }
-            if(item.getItem() == ItemRegistry.POTION_FLASK.get() || item.getItem() == ItemRegistry.SPLASH_POTION_FLASK.get() ){
+            if(item.getItem() == ItemRegistry.POTION_FLASK.get() ||
+                    item.getItem() == ItemRegistry.SPLASH_POTION_FLASK.get() ||
+                    item.getItem() == ItemRegistry.LINGERING_POTION_FLASK.get()){
                 if(hasPotionFlask){return false;}
                 if(potionID == ""){
                     potionID = item.getTag().getString("Potion");
@@ -93,6 +97,7 @@ public class PotionFlaskRecipe implements CraftingRecipe {
     public ItemStack assemble(CraftingContainer pContainer) {
 
         boolean splashFlask = false;
+        boolean lingeringFlask = false;
         int baseFillLevel = 0;
         int fillAdd = 0;
         String potion = "";
@@ -113,13 +118,22 @@ public class PotionFlaskRecipe implements CraftingRecipe {
             if(pContainer.getItem(i).getItem() == ItemRegistry.EMPTY_SPLASH_POTION_FLASK.get()){
                 splashFlask = true;
             }
+            if(pContainer.getItem(i).getItem() == ItemRegistry.LINGERING_POTION_FLASK.get()){
+                baseFillLevel = pContainer.getItem(i).getTag().getInt("potionflasks:fill_level");
+                lingeringFlask = true;
+            }
+            if(pContainer.getItem(i).getItem() == ItemRegistry.EMPTY_LINGERING_POTION_FLASK.get()){
+                lingeringFlask = true;
+            }
         }
 
         ItemStack flask;
 
         if(splashFlask){
             flask = new ItemStack(ItemRegistry.SPLASH_POTION_FLASK.get());
-        }else{
+        } else if (lingeringFlask) {
+            flask = new ItemStack(ItemRegistry.LINGERING_POTION_FLASK.get());
+        } else{
             flask = new ItemStack(ItemRegistry.POTION_FLASK.get());
         }
 

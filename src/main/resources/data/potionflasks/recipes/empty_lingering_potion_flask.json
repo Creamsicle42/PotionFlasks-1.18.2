@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " N ",
+    "BFB",
+    "GBG"
+  ],
+  "key": {
+    "F": {
+      "item": "potionflasks:empty_splash_potion_flask"
+    },
+    "B": {
+      "item": "minecraft:dragon_breath"
+    },
+    "N": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:phantom_membrane"
+    }
+  },
+  "result": {
+    "item": "potionflasks:empty_lingering_potion_flask"
+  }
+}

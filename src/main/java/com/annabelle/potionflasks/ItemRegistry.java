@@ -1,5 +1,6 @@
 package com.annabelle.potionflasks;
 
+import com.annabelle.potionflasks.lingeringflask.LingeringFlaskItem;
 import com.annabelle.potionflasks.potionflask.PotionFlaskItem;
 import com.annabelle.potionflasks.regeneratingflask.RegeneratingPotionFlaskItem;
 import com.annabelle.potionflasks.splashingflask.SplashPotionFlaskItem;
@@ -24,10 +25,17 @@ public class ItemRegistry {
                     .tab(CreativeModeTab.TAB_BREWING)
                     .stacksTo(1))
     );
+    public static final RegistryObject<Item> LINGERING_POTION_FLASK = ITEMS.register("lingering_potion_flask",
+            () -> new LingeringFlaskItem(new Item.Properties()
+                    .tab(CreativeModeTab.TAB_BREWING)
+                    .stacksTo(1))
+    );
 
     public static final RegistryObject<Item> EMPTY_POTION_FLASK = ITEMS.register("empty_potion_flask",
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
     public static final RegistryObject<Item> EMPTY_SPLASH_POTION_FLASK = ITEMS.register("empty_splash_potion_flask",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+    public static final RegistryObject<Item> EMPTY_LINGERING_POTION_FLASK = ITEMS.register("empty_lingering_potion_flask",
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
     public static final RegistryObject<Item> REGENERATING_POTION_FLASK = ITEMS.register("regenerating_potion_flask",
@@ -35,6 +43,8 @@ public class ItemRegistry {
                     .tab(CreativeModeTab.TAB_BREWING)
                     .stacksTo(1))
     );
+
+
 
 
     public static void register(IEventBus eventBus) {
