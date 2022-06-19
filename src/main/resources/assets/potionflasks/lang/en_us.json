@@ -99,105 +99,130 @@
 
   "item.potionflasks.potion_flask.effect.resistance": "Potion Flask of Resistance",
   "item.potionflasks.splash_potion_flask.effect.resistance": "Splashing Potion Flask of Resistance",
+  "item.potionflasks.lingering_potion_flask.effect.resistance": "Lingering Potion Flask of Resistance",
   "item.potionflasks.regenerating_potion_flask.effect.resistance": "Unending Flask of Resistance",
 
   "item.potionflasks.potion_flask.effect.absorption": "Potion Flask of Absorption",
   "item.potionflasks.splash_potion_flask.effect.absorption": "Splashing Potion Flask of Absorption",
+  "item.potionflasks.lingering_potion_flask.effect.absorption": "Lingering Potion Flask of Absorption",
   "item.potionflasks.regenerating_potion_flask.effect.absorption": "Unending Flask of Absorption",
 
   "item.potionflasks.potion_flask.effect.haste": "Potion Flask of Haste",
   "item.potionflasks.splash_potion_flask.effect.haste": "Splashing Potion Flask of Haste",
+  "item.potionflasks.lingering_potion_flask.effect.haste": "Lingering Potion Flask of Haste",
   "item.potionflasks.regenerating_potion_flask.effect.haste": "Unending Flask of Haste",
 
   "item.potionflasks.potion_flask.effect.fatigue": "Potion Flask of Fatigue",
   "item.potionflasks.splash_potion_flask.effect.fatigue": "Splashing Potion Flask of Fatigue",
+  "item.potionflasks.lingering_potion_flask.effect.fatigue": "Lingering Potion Flask of Fatigue",
   "item.potionflasks.regenerating_potion_flask.effect.fatigue": "Unending Flask of Fatigue",
 
   "item.potionflasks.potion_flask.effect.wither": "Potion Flask of Wither",
   "item.potionflasks.splash_potion_flask.effect.wither": "Splashing Potion Flask of Wither",
+  "item.potionflasks.lingering_potion_flask.effect.wither": "Lingering Potion Flask of Wither",
   "item.potionflasks.regenerating_potion_flask.effect.wither": "Unending Flask of Wither",
 
   "item.potionflasks.potion_flask.effect.sundering": "Potion Flask of Sundering",
   "item.potionflasks.splash_potion_flask.effect.sundering": "Splashing Potion Flask of Sundering",
+  "item.potionflasks.lingering_potion_flask.effect.sundering": "Lingering Potion Flask of Sundering",
   "item.potionflasks.regenerating_potion_flask.effect.sundering": "Unending Flask of Sundering",
 
   "item.potionflasks.potion_flask.effect.knowledge": "Potion Flask of Ancient Knowledge",
   "item.potionflasks.splash_potion_flask.effect.knowledge": "Splashing Potion Flask of Ancient Knowledge",
+  "item.potionflasks.lingering_potion_flask.effect.knowledge": "Lingering Potion Flask of Ancient Knowledge",
   "item.potionflasks.regenerating_potion_flask.effect.knowledge": "Unending Flask of Ancient Knowledge",
 
   "comment_2": "Cyclic potions",
 
   "item.potionflasks.potion_flask.effect.slowfall": "Potion Flask of Slowfall",
   "item.potionflasks.splash_potion_flask.effect.slowfall": "Splashing Potion Flask of Slowfall",
+  "item.potionflasks.lingering_potion_flask.effect.slowfall": "Lingering Potion Flask of Slowfall",
   "item.potionflasks.regenerating_potion_flask.effect.slowfall": "Unending Flask of Slowfall",
 
   "item.potionflasks.potion_flask.effect.butter": "Potion Flask of Butterfingers",
   "item.potionflasks.splash_potion_flask.effect.butter": "Splashing Potion Flask of Butterfingers",
+  "item.potionflasks.lingering_potion_flask.effect.butter": "Lingering Potion Flask of Butterfingers",
   "item.potionflasks.regenerating_potion_flask.effect.butter": "Unending Flask of Butterfingers",
 
   "item.potionflasks.potion_flask.effect.butter2": "Potion Flask of Butterfingers II",
   "item.potionflasks.splash_potion_flask.effect.butter2": "Splashing Potion Flask of Butterfingers II",
+  "item.potionflasks.lingering_potion_flask.effect.butter2": "Lingering Potion Flask of Butterfingers II",
   "item.potionflasks.regenerating_potion_flask.effect.butter2": "Unending Flask of Butterfingers II",
 
   "item.potionflasks.potion_flask.effect.cyclic_waterwalk": "Potion Flask of Waterwalking",
   "item.potionflasks.splash_potion_flask.effect.cyclic_waterwalk": "Splashing Potion Flask of Waterwalking",
+  "item.potionflasks.lingering_potion_flask.effect.cyclic_waterwalk": "Lingering Potion Flask of Waterwalking",
   "item.potionflasks.regenerating_potion_flask.effect.cyclic_waterwalk": "Unending Flask of Waterwalking",
 
   "item.potionflasks.potion_flask.effect.cyclic_snow": "Potion Flask of Snow-walker",
   "item.potionflasks.splash_potion_flask.effect.cyclic_snow": "Splashing Potion Flask of Snow-walker",
+  "item.potionflasks.lingering_potion_flask.effect.cyclic_snow": "Lingering Potion Flask of Snow-walker",
   "item.potionflasks.regenerating_potion_flask.effect.cyclic_snow": "Unending Flask of Snow-walker",
 
   "item.potionflasks.potion_flask.effect.cyclic_haste": "Potion Flask of Haste",
   "item.potionflasks.splash_potion_flask.effect.cyclic_haste": "Splashing Potion Flask of Haste",
+  "item.potionflasks.lingering_potion_flask.effect.cyclic_haste": "Lingering Potion Flask of Haste",
   "item.potionflasks.regenerating_potion_flask.effect.cyclic_haste": "Unending Flask of Haste",
 
   "item.potionflasks.potion_flask.effect.cyclic_strong_haste": "Potion Flask of Haste II",
   "item.potionflasks.splash_potion_flask.effect.cyclic_strong_haste": "Splashing Potion Flask of Haste II",
+  "item.potionflasks.lingering_potion_flask.effect.cyclic_strong_haste": "Lingering Potion Flask of Haste II",
   "item.potionflasks.regenerating_potion_flask.effect.cyclic_strong_haste": "Unending Flask of Haste II",
 
   "item.potionflasks.potion_flask.effect.cyclic_stun": "Potion Flask of Paralyze",
   "item.potionflasks.splash_potion_flask.effect.cyclic_stun": "Splashing Potion Flask of Paralyze",
+  "item.potionflasks.lingering_potion_flask.effect.cyclic_stun": "Lingering Potion Flask of Paralyze",
   "item.potionflasks.regenerating_potion_flask.effect.cyclic_stun": "Unending Flask of Paralyze",
 
   "item.potionflasks.potion_flask.effect.cyclic_resistance": "Potion Flask of Resistance",
   "item.potionflasks.splash_potion_flask.effect.cyclic_resistance": "Splashing Potion Flask of Resistance",
+  "item.potionflasks.lingering_potion_flask.effect.cyclic_resistance": "Lingering Potion Flask of Resistance",
   "item.potionflasks.regenerating_potion_flask.effect.cyclic_resistance": "Unending Flask of Resistance",
 
   "item.potionflasks.potion_flask.effect.cyclic_wither": "Potion Flask of Wither",
   "item.potionflasks.splash_potion_flask.effect.cyclic_wither": "Splashing Potion Flask of Wither",
+  "item.potionflasks.lingering_potion_flask.effect.cyclic_wither": "Lingering Potion Flask of Wither",
   "item.potionflasks.regenerating_potion_flask.effect.cyclic_wither": "Unending Flask of Wither",
 
   "item.potionflasks.potion_flask.effect.cyclic_swimspeed": "Potion Flask of Swim Speed",
   "item.potionflasks.splash_potion_flask.effect.cyclic_swimspeed": "Splashing Potion Flask of Swim Speed",
+  "item.potionflasks.lingering_potion_flask.effect.cyclic_swimspeed": "Lingering Potion Flask of Swim Speed",
   "item.potionflasks.regenerating_potion_flask.effect.cyclic_swimspeed": "Unending Flask of Swim Speed",
 
   "item.potionflasks.potion_flask.effect.cyclic_blind": "Potion Flask of Blindness",
   "item.potionflasks.splash_potion_flask.effect.cyclic_blind": "Splashing Potion Flask of Blindness",
+  "item.potionflasks.lingering_potion_flask.effect.cyclic_blind": "Lingering Potion Flask of Blindness",
   "item.potionflasks.regenerating_potion_flask.effect.cyclic_blind": "Unending Flask of Blindness",
 
   "item.potionflasks.potion_flask.effect.cyclic_levitation": "Potion Flask of Levitation",
   "item.potionflasks.splash_potion_flask.effect.cyclic_levitation": "Splashing Potion Flask of Levitation",
+  "item.potionflasks.lingering_potion_flask.effect.cyclic_levitation": "Lingering Potion Flask of Levitation",
   "item.potionflasks.regenerating_potion_flask.effect.cyclic_levitation": "Unending Flask of Levitation",
 
   "item.potionflasks.potion_flask.effect.cyclic_hunger": "Potion Flask of Hunger",
   "item.potionflasks.splash_potion_flask.effect.cyclic_hunger": "Splashing Potion Flask of Hunger",
+  "item.potionflasks.lingering_potion_flask.effect.cyclic_hunger": "Lingering Potion Flask of Hunger",
   "item.potionflasks.regenerating_potion_flask.effect.cyclic_hunger": "Unending Flask of Hunger",
 
   "item.potionflasks.potion_flask.effect.cyclic_strong_hunger": "Potion Flask of Hunger II",
   "item.potionflasks.splash_potion_flask.effect.cyclic_strong_hunger": "Splashing Potion Flask of Hunger II",
+  "item.potionflasks.lingering_potion_flask.effect.cyclic_strong_hunger": "Lingering Potion Flask of Hunger II",
   "item.potionflasks.regenerating_potion_flask.effect.cyclic_strong_hunger": "Unending Flask of Hunger II",
 
   "item.potionflasks.potion_flask.effect.bounce": "Potion Flask of Bouncing",
   "item.potionflasks.splash_potion_flask.effect.bounce": "Splashing Potion Flask of Bouncing",
+  "item.potionflasks.lingering_potion_flask.effect.bounce": "Lingering Potion Flask of Bouncing",
   "item.potionflasks.regenerating_potion_flask.effect.bounce": "Unending Flask of Bouncing",
 
   "comment_3": "Quark potions",
 
   "item.potionflasks.potion_flask.effect.quark.resilience": "Potion Flask of Stability",
   "item.potionflasks.splash_potion_flask.effect.quark.resilience": "Splashing Potion Flask of Stability",
+  "item.potionflasks.lingering_potion_flask.effect.quark.resilience": "Lingering Potion Flask of Stability",
   "item.potionflasks.regenerating_potion_flask.effect.quark.resilience": "Unending Flask of Stability",
 
   "item.potionflasks.potion_flask.effect.quark.resistance": "Potion Flask of Fortitude",
   "item.potionflasks.splash_potion_flask.effect.quark.resistance": "Splashing Potion Flask of Fortitude",
+  "item.potionflasks.lingering_potion_flask.effect.quark.resistance": "Lingering Potion Flask of Fortitude",
   "item.potionflasks.regenerating_potion_flask.effect.quark.resistance": "Unending Flask of Fortitude"
 }
