@@ -2,7 +2,11 @@ package com.annabelle.potionflasks.lingeringflask;
 
 import com.annabelle.potionflasks.ItemRegistry;
 import com.annabelle.potionflasks.config.PotionFlasksCommonConfig;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -12,7 +16,11 @@ import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.LingeringPotionItem;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class LingeringFlaskItem extends LingeringPotionItem {
     public LingeringFlaskItem(Properties pProperties) {
@@ -55,7 +63,12 @@ public class LingeringFlaskItem extends LingeringPotionItem {
 
         level.addFreshEntity(thrownpotion);
     }
-
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+        if(!Screen.hasShiftDown()){return;}
+        pTooltipComponents.add(new TranslatableComponent("tooltip.potionflasks.lingering_potion_flask").withStyle(ChatFormatting.GRAY));
+    }
     public ItemStack getEmptyItemStack(){return new ItemStack(ItemRegistry.EMPTY_LINGERING_POTION_FLASK.get());}
 
     public boolean isBarVisible(ItemStack pStack) {
