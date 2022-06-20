@@ -2,6 +2,9 @@ package com.annabelle.potionflasks.splashingflask;
 
 import com.annabelle.potionflasks.ItemRegistry;
 import com.annabelle.potionflasks.config.PotionFlasksCommonConfig;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -16,14 +19,15 @@ import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SplashPotionItem;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.List;
 
 public class SplashPotionFlaskItem extends SplashPotionItem {
@@ -80,6 +84,13 @@ public class SplashPotionFlaskItem extends SplashPotionItem {
     @Override
     public int getBarWidth(ItemStack pStack) {
         return (int)(((float)pStack.getTag().getInt("potionflasks:fill_level")/PotionFlasksCommonConfig.FLASK_MAX_FILL_LEVEL.get()) * 13);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+        if(!Screen.hasShiftDown()){return;}
+        pTooltipComponents.add(new TranslatableComponent("tooltip.potionflasks.potion_flask"));
     }
 
     @Override

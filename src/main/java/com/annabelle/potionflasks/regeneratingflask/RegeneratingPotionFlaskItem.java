@@ -3,8 +3,12 @@ package com.annabelle.potionflasks.regeneratingflask;
 import com.annabelle.potionflasks.ItemRegistry;
 import com.annabelle.potionflasks.config.PotionFlasksCommonConfig;
 import com.annabelle.potionflasks.potionflask.PotionFlaskItem;
+import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -15,9 +19,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class RegeneratingPotionFlaskItem extends PotionFlaskItem {
     public RegeneratingPotionFlaskItem(Properties p_42979_) {
@@ -105,5 +113,12 @@ public class RegeneratingPotionFlaskItem extends PotionFlaskItem {
         }
 
 
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        //super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+        if(!Screen.hasShiftDown()){return;}
+        pTooltipComponents.add(new TranslatableComponent("tooltip.potionflasks.regenerating_potion_flask").withStyle(ChatFormatting.GRAY));
     }
 }

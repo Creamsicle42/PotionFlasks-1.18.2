@@ -3,6 +3,11 @@
   "item.potionflasks.empty_splash_potion_flask": "Empty Splash Potion Flask",
   "item.potionflasks.empty_lingering_potion_flask": "Empty Lingering Potion Flask",
 
+  "tooltip.potionflasks.empty_potion_flask": "Craft with any potion to fill flask",
+  "tooltip.potionflasks.potion_flask": "Craft with an empty bottle to fill it",
+  "tooltip.potionflasks.lingering_potion_flask": "Craft with arrows to tip them with the potion",
+  "tooltip.potionflasks.regenerating_potion_flask": "Refills over time",
+
   "item.potionflasks.potion_flask.effect.empty": "Uncraftable Potion Flask",
   "item.potionflasks.potion_flask.effect.water": "Water Bottle",
   "item.potionflasks.potion_flask.effect.mundane": "Mundane Potion Flask",
