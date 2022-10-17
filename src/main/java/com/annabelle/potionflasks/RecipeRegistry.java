@@ -16,15 +16,15 @@ public class RecipeRegistry {
 
     public static final RegistryObject<RecipeSerializer<PotionFlaskRecipe>> POTION_FLASK_RECIPE =
             SERIALIZERS.register("fill_potion_flask",
-                    PotionFlaskRecipe.Serializer::new);
+                    () -> PotionFlaskRecipe.Serializer.INSTANCE);
 
     public static final RegistryObject<RecipeSerializer<PotionFillingRecipe>> POTION_FILLING_RECIPE =
             SERIALIZERS.register("fill_from_potion_flask",
-                    PotionFillingRecipe.Serializer::new);
+                    () -> PotionFillingRecipe.Serializer.INSTANCE);
 
     public static final RegistryObject<RecipeSerializer<TippedArrowFromFlaskRecipe>> TIPPED_ARROW_FROM_FLASK_RECIPE =
             SERIALIZERS.register("tipped_arrow_from_flask_recipe",
-                    TippedArrowFromFlaskRecipe.Serializer::new);
+                    () -> TippedArrowFromFlaskRecipe.Serializer.INSTANCE);
 
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);

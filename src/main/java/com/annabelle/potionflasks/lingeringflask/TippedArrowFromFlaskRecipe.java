@@ -106,13 +106,20 @@ public class TippedArrowFromFlaskRecipe implements CraftingRecipe {
         return new PotionFillingRecipe.Serializer();
     }
 
+    public static class Type implements RecipeType<TippedArrowFromFlaskRecipe> {
+        private Type() { }
+        public static final TippedArrowFromFlaskRecipe.Type INSTANCE = new TippedArrowFromFlaskRecipe.Type();
+        public static final String ID = "tipped_arrow_from_flask_recipe";
+    }
+
     @Override
     public RecipeType<?> getType() {
         return RecipeType.CRAFTING;
     }
 
     public static class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<TippedArrowFromFlaskRecipe> {
-        private static final ResourceLocation NAME = new ResourceLocation(PotionFlasks.MOD_ID, "tipped_arrow_from_flask_recipe");
+        public static final TippedArrowFromFlaskRecipe.Serializer INSTANCE = new TippedArrowFromFlaskRecipe.Serializer();
+        private static final ResourceLocation ID = new ResourceLocation(PotionFlasks.MOD_ID, "tipped_arrow_from_flask_recipe");
         public TippedArrowFromFlaskRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
             return new TippedArrowFromFlaskRecipe(pRecipeId);
         }

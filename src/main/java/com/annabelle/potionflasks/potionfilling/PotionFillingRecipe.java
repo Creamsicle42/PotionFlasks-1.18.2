@@ -2,6 +2,7 @@ package com.annabelle.potionflasks.potionfilling;
 
 import com.annabelle.potionflasks.ItemRegistry;
 import com.annabelle.potionflasks.PotionFlasks;
+import com.annabelle.potionflasks.potionflask.PotionFlaskRecipe;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -104,8 +105,15 @@ public class PotionFillingRecipe implements CraftingRecipe {
         return RecipeType.CRAFTING;
     }
 
+    public static class Type implements RecipeType<PotionFillingRecipe> {
+        private Type() { }
+        public static final PotionFillingRecipe.Type INSTANCE = new PotionFillingRecipe.Type();
+        public static final String ID = "fill_from_potion_flask";
+    }
+
     public static class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<PotionFillingRecipe> {
-        private static final ResourceLocation NAME = new ResourceLocation(PotionFlasks.MOD_ID, "fill_from_potion_flask");
+        public static final PotionFillingRecipe.Serializer INSTANCE = new PotionFillingRecipe.Serializer();
+        private static final ResourceLocation ID = new ResourceLocation(PotionFlasks.MOD_ID, "fill_from_potion_flask");
         public PotionFillingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
             return new PotionFillingRecipe(pRecipeId);
         }

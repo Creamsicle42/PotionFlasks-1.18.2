@@ -184,8 +184,15 @@ public class PotionFlaskRecipe implements CraftingRecipe {
         return RecipeType.CRAFTING;
     }
 
+    public static class Type implements RecipeType<PotionFlaskRecipe> {
+        private Type() { }
+        public static final Type INSTANCE = new Type();
+        public static final String ID = "fill_potion_flask";
+    }
+
     public static class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<PotionFlaskRecipe> {
-        private static final ResourceLocation NAME = new ResourceLocation(PotionFlasks.MOD_ID, "fill_potion_flask");
+        public static final Serializer INSTANCE = new Serializer();
+        private static final ResourceLocation ID = new ResourceLocation(PotionFlasks.MOD_ID, "fill_potion_flask");
         public PotionFlaskRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
             return new PotionFlaskRecipe(pRecipeId);
         }
