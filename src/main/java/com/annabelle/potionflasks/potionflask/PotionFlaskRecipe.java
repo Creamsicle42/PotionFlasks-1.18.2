@@ -26,7 +26,9 @@ public class PotionFlaskRecipe implements CraftingRecipe {
     @Override
     public boolean matches(CraftingContainer pContainer, Level pLevel) {
 
-        System.out.println("Testing potion flask recipe");
+        if(pLevel.isClientSide()) {
+            return false;
+        }
 
         boolean hasPotionFlask = false;
         boolean splashFlask = false;
@@ -171,12 +173,12 @@ public class PotionFlaskRecipe implements CraftingRecipe {
 
     @Override
     public ResourceLocation getId() {
-        return this.id;
+        return id;
     }
 
     @Override
     public RecipeSerializer<PotionFlaskRecipe> getSerializer() {
-        return new PotionFlaskRecipe.Serializer();
+        return Serializer.INSTANCE;
     }
 
     @Override
@@ -184,8 +186,15 @@ public class PotionFlaskRecipe implements CraftingRecipe {
         return RecipeType.CRAFTING;
     }
 
-    public static class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<PotionFlaskRecipe> {
-        private static final ResourceLocation NAME = new ResourceLocation(PotionFlasks.MOD_ID, "fill_potion_flask");
+    public static class Type implements RecipeType<PotionFlaskRecipe> {
+        private Type() { }
+        public static final Type INSTANCE = new Type();
+        public static final String ID = "fill_potion_flask";
+    }
+
+    public static class Serializer implements RecipeSerializer<PotionFlaskRecipe> {
+        public static final Serializer INSTANCE = new Serializer();
+        private static final ResourceLocation ID = new ResourceLocation(PotionFlasks.MOD_ID, "fill_potion_flask");
         public PotionFlaskRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
             return new PotionFlaskRecipe(pRecipeId);
         }
@@ -195,7 +204,27 @@ public class PotionFlaskRecipe implements CraftingRecipe {
         }
 
         public void toNetwork(FriendlyByteBuf pBuffer, PotionFlaskRecipe pRecipe) {
+            
+        }
 
+        @Override
+        public RecipeSerializer<?> setRegistryName(ResourceLocation name) {
+            return INSTANCE;
+        }
+
+        @Override
+        public ResourceLocation getRegistryName() {
+            return ID;
+        }
+
+        @Override
+        public Class<RecipeSerializer<?>> getRegistryType() {
+            return Serializer.castClass(RecipeSerializer.class);
+        }
+
+        @SuppressWarnings("unchecked") // Need this wrapper, because generics
+        private static <G> Class<G> castClass(Class<?> cls) {
+            return (Class<G>)cls;
         }
     }
 }
