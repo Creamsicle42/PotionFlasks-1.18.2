@@ -3,6 +3,7 @@ package com.annabelle.potionflasks.lingeringflask;
 import com.annabelle.potionflasks.ItemRegistry;
 import com.annabelle.potionflasks.PotionFlasks;
 import com.annabelle.potionflasks.potionfilling.PotionFillingRecipe;
+import com.annabelle.potionflasks.potionflask.PotionFlaskRecipe;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -26,6 +27,9 @@ public class TippedArrowFromFlaskRecipe implements CraftingRecipe {
 
 
     public boolean matches(CraftingContainer pInv, Level pLevel) {
+        if(pLevel.isClientSide()) {
+            return false;
+        }
         if (pInv.getWidth() == 3 && pInv.getHeight() == 3) {
             for(int i = 0; i < pInv.getWidth(); ++i) {
                 for(int j = 0; j < pInv.getHeight(); ++j) {
@@ -98,14 +102,14 @@ public class TippedArrowFromFlaskRecipe implements CraftingRecipe {
 
     @Override
     public ResourceLocation getId() {
-        return this.id;
+        return id;
     }
 
     @Override
-    public RecipeSerializer<PotionFillingRecipe> getSerializer() {
-        return new PotionFillingRecipe.Serializer();
-    }
+    public RecipeSerializer<TippedArrowFromFlaskRecipe> getSerializer() {
 
+        return Serializer.INSTANCE;
+    }
     public static class Type implements RecipeType<TippedArrowFromFlaskRecipe> {
         private Type() { }
         public static final TippedArrowFromFlaskRecipe.Type INSTANCE = new TippedArrowFromFlaskRecipe.Type();
@@ -117,7 +121,7 @@ public class TippedArrowFromFlaskRecipe implements CraftingRecipe {
         return RecipeType.CRAFTING;
     }
 
-    public static class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<TippedArrowFromFlaskRecipe> {
+    public static class Serializer implements RecipeSerializer<TippedArrowFromFlaskRecipe> {
         public static final TippedArrowFromFlaskRecipe.Serializer INSTANCE = new TippedArrowFromFlaskRecipe.Serializer();
         private static final ResourceLocation ID = new ResourceLocation(PotionFlasks.MOD_ID, "tipped_arrow_from_flask_recipe");
         public TippedArrowFromFlaskRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
@@ -130,6 +134,26 @@ public class TippedArrowFromFlaskRecipe implements CraftingRecipe {
 
         public void toNetwork(FriendlyByteBuf pBuffer, TippedArrowFromFlaskRecipe pRecipe) {
 
+        }
+
+        @Override
+        public RecipeSerializer<?> setRegistryName(ResourceLocation name) {
+            return INSTANCE;
+        }
+
+        @Override
+        public ResourceLocation getRegistryName() {
+            return ID;
+        }
+
+        @Override
+        public Class<RecipeSerializer<?>> getRegistryType() {
+            return TippedArrowFromFlaskRecipe.Serializer.castClass(RecipeSerializer.class);
+        }
+
+        @SuppressWarnings("unchecked") // Need this wrapper, because generics
+        private static <G> Class<G> castClass(Class<?> cls) {
+            return (Class<G>)cls;
         }
     }
 }

@@ -25,6 +25,10 @@ public class PotionFillingRecipe implements CraftingRecipe {
 
     @Override
     public boolean matches(CraftingContainer pContainer, Level pLevel) {
+        if(pLevel.isClientSide()) {
+            return false;
+        }
+
         // Search through container for 1 potion_flask and 1 empty bottle
         boolean bottleFlag = false;
         boolean flaskFlag = false;
@@ -92,12 +96,13 @@ public class PotionFillingRecipe implements CraftingRecipe {
 
     @Override
     public ResourceLocation getId() {
-        return this.id;
+        return id;
     }
 
     @Override
     public RecipeSerializer<PotionFillingRecipe> getSerializer() {
-        return new PotionFillingRecipe.Serializer();
+
+        return Serializer.INSTANCE;
     }
 
     @Override
@@ -111,7 +116,7 @@ public class PotionFillingRecipe implements CraftingRecipe {
         public static final String ID = "fill_from_potion_flask";
     }
 
-    public static class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<PotionFillingRecipe> {
+    public static class Serializer implements RecipeSerializer<PotionFillingRecipe> {
         public static final PotionFillingRecipe.Serializer INSTANCE = new PotionFillingRecipe.Serializer();
         private static final ResourceLocation ID = new ResourceLocation(PotionFlasks.MOD_ID, "fill_from_potion_flask");
         public PotionFillingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
@@ -124,6 +129,26 @@ public class PotionFillingRecipe implements CraftingRecipe {
 
         public void toNetwork(FriendlyByteBuf pBuffer, PotionFillingRecipe pRecipe) {
 
+        }
+
+        @Override
+        public RecipeSerializer<?> setRegistryName(ResourceLocation name) {
+            return INSTANCE;
+        }
+
+        @Override
+        public ResourceLocation getRegistryName() {
+            return ID;
+        }
+
+        @Override
+        public Class<RecipeSerializer<?>> getRegistryType() {
+            return PotionFillingRecipe.Serializer.castClass(RecipeSerializer.class);
+        }
+
+        @SuppressWarnings("unchecked") // Need this wrapper, because generics
+        private static <G> Class<G> castClass(Class<?> cls) {
+            return (Class<G>)cls;
         }
     }
 }
